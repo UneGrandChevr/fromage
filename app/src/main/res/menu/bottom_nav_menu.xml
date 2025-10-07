@@ -5,16 +5,16 @@
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/paramIcon"
+        android:icon="@drawable/param_icon"
         android:title="@string/title_parametre" />
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/homeIcon"
+        android:icon="@drawable/home_icon"
         android:title="@string/title_menu" />
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/recettesIcon"
+        android:icon="@drawable/recettes_icon"
         android:title="@string/title_recette" />
 
 </menu>
