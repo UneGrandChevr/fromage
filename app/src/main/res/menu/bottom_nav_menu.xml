@@ -6,15 +6,15 @@
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/param_icon"
-        android:title="@string/title_parametre" />
+        android:title="@string/title_dashboard" />
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/home_icon"
-        android:title="@string/title_menu" />
+        android:title="@string/title_home" />
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/recettes_icon"
-        android:title="@string/title_recette" />
+        android:title="@string/title_notifications" />
 
 </menu>
