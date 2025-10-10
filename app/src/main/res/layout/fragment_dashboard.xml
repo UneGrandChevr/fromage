@@ -7,101 +7,80 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
-        android:id="@+id/Parametre_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="276dp"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:text="Paramètres : "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/Notifications_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="54dp"
-        android:layout_marginEnd="24dp"
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:text="Notifications :  "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.031" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="117dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="130dp"
+        android:text="ToggleButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Notifications_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
 
     <TextView
         android:id="@+id/allergenes_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="210dp"
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:text="Allergènes :  "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="88dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="130dp"
-        android:text="ToggleButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Notifications_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
-
-    <CheckBox
-        android:id="@+id/Lactose_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="129dp"
-        android:text="Lactose"
-        app:layout_constraintBottom_toTopOf="@+id/fruitacoque_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/allergenes_text"
-        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
-
-    <CheckBox
-        android:id="@+id/fruitacoque_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:text="fruits à coques"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Lactose_text" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/moississure_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="196dp"
         android:text="Moississures"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fruitacoque_text" />
 
     <CheckBox
+        android:id="@+id/Lactose_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="200dp"
+        android:text="Lactose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
         android:id="@+id/gluten_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="196dp"
         android:text="Gluten"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moississure_text" />
+
+    <CheckBox
+        android:id="@+id/fruitacoque_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:text="fruits à coques"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Lactose_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
