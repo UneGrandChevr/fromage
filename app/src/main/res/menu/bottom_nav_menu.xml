@@ -6,6 +6,7 @@
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/param_icon"
+
         android:title="@string/title_dashboard" />
 
     <item
