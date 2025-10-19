@@ -20,9 +20,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private RecyclerView recyclerView;
-    private MyAdapterItemLayout adapter;
-    private List<ItemLayout> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +38,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        recyclerView = findViewById(R.id.myRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Données à afficher
-        itemList = new ArrayList<ItemLayout>();
-        itemList.add(new ItemLayout(R.drawable.ic_launcher_foreground, "Titre 1", "Sous-titre 1"));
-        itemList.add(new ItemLayout(R.drawable.ic_launcher_foreground, "Titre 2", "Sous-titre 2"));
-        itemList.add(new ItemLayout(R.drawable.ic_launcher_foreground, "Titre 3", "Sous-titre 3"));
-
-        adapter = new MyAdapterItemLayout(itemList);
-        recyclerView.setAdapter(adapter);
     }
     //AAA mais nino gay en plus
 
