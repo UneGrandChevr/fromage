@@ -59,5 +59,6 @@ public class HomeFragment extends Fragment {
 
         adapter = new MyAdapterItemLayout(itemList);
         recyclerView.setAdapter(adapter);
+
     }
 }
