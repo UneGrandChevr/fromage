@@ -78,7 +78,7 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
         addBtn.setOnClickListener(v -> {
-            MaCave.addListFromages(new ItemLayout(R.id.detail_image, item.getTitle(), "Fin de l'affinage dans 5 jours."));
+            MaCave.addListFromages(new ItemLayout(item.getImageResId(), item.getTitle(), "Fin de l'affinage dans 5 jours."));
         });
         dialog.show();
     }

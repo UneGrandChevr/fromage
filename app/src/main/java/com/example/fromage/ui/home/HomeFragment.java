@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        itemList = new ArrayList<ItemLayout>();
 
         loadHome(root);
         return root;
@@ -66,5 +67,13 @@ public class HomeFragment extends Fragment {
     public void addItem(int imageResId, String title, String subtitle) {
         itemList.add(new ItemLayout(imageResId, title, subtitle));
         adapter.notifyItemInserted(itemList.size() - 1);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 }
