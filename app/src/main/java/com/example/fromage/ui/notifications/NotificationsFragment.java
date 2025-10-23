@@ -66,7 +66,7 @@ public class NotificationsFragment extends Fragment {
         adapter.setOnRecetteAddListener(recette -> {
             // Ici, tu envoies l’info au HomeFragment
             HomeFragment homeFragment = (HomeFragment)
-                    requireActivity().getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
+                    requireActivity().getSupportFragmentManager().findFragmentByTag("HomeFragment");
 
             if (homeFragment != null) {
                 homeFragment.addItem(recette.getImageResId(), recette.getTitle(), "Retourner dans 7 jours");
