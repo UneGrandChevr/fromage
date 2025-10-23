@@ -19,7 +19,7 @@ import com.example.fromage.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnRecetteAddListener{
 
     private ActivityMainBinding binding;
 
@@ -30,12 +30,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new HomeFragment(), "home_fragment_tag") // <-- ici ton tag
-                    .commit();
-        }
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -45,11 +39,28 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //getSupportActiossnBar().setDisplayShowTitleEnabled(false);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment_activity_main, new HomeFragment(), "home_fragment_tag")
+                .commit();
     }
-    //AAA mais nino gay en plus
+
+
+    @Override
+    public void onRecetteAdd(int imageResId, String title, String subtitle) {
+        // Récupère le HomeFragment actuellement affiché
+        HomeFragment homeFragment = (HomeFragment)
+                getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
+
+        if (homeFragment != null) {
+            homeFragment.addItem(imageResId, title, subtitle);
+        } else {
+
+        }
+    }
 
 }
