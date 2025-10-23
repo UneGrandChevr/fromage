@@ -62,18 +62,6 @@ public class NotificationsFragment extends Fragment {
             public void afterTextChanged(Editable s) {}
         });
 
-        adapter = new MyAdapterRecetteListLayout(recetteListLayouts, getContext());
-
-        adapter.setOnRecetteAddListener(recette -> {
-            // Ici, tu envoies l’info au HomeFragment
-            HomeFragment homeFragment = (HomeFragment)
-                    ((AppCompatActivity) requireActivity()).getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
-
-            if (homeFragment != null) {
-                homeFragment.addItem(recette.getImageResId(), recette.getTitle(), "Retourner dans 7 jours");
-            }
-        });
-
         return root;
     }
 

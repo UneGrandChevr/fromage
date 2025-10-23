@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fromage.ItemLayout;
+import com.example.fromage.MaCave;
 import com.example.fromage.MyAdapterItemLayout;
 import com.example.fromage.R;
 import com.example.fromage.databinding.FragmentHomeBinding;
@@ -35,8 +36,6 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //final TextView textView = binding.textHome;
-        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         loadHome(root);
         return root;
     }
@@ -52,14 +51,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Données à afficher
-        itemList = new ArrayList<ItemLayout>();
-        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", "Retourner dans 12 jours."));
-        itemList.add(new ItemLayout(R.drawable.brie_icon, "Brie", "Fin de l'affinage dans 5 jours."));
-        itemList.add(new ItemLayout(R.drawable.roquefort_icon, "Roquefort", "Fin de l'affinage!"));
+        for(ItemLayout item : MaCave.getListFromages()) {
+            itemList.add(item);
+        }
 
         adapter = new MyAdapterItemLayout(itemList);
         recyclerView.setAdapter(adapter);
-
+        //USING FRAGMENT FOR RESPONSIVE LAYOUT
+        //        SHARED PREFERECIES
     }
 
     public void addItem(int imageResId, String title, String subtitle) {

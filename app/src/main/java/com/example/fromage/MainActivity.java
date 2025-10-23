@@ -19,7 +19,7 @@ import com.example.fromage.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnRecetteAddListener{
+public class MainActivity extends AppCompatActivity{
 
     private ActivityMainBinding binding;
 
@@ -44,23 +44,11 @@ public class MainActivity extends AppCompatActivity implements OnRecetteAddListe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_main, new HomeFragment(), "home_fragment_tag")
-                .commit();
+        ArrayList<ItemLayout> itemList = new ArrayList<ItemLayout>();
+        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", "Retourner dans 12 jours."));
+        itemList.add(new ItemLayout(R.drawable.brie_icon, "Brie", "Fin de l'affinage dans 5 jours."));
+        itemList.add(new ItemLayout(R.drawable.roquefort_icon, "Roquefort", "Fin de l'affinage!"));
+        MaCave.setListFromages(itemList);
+
     }
-
-
-    @Override
-    public void onRecetteAdd(int imageResId, String title, String subtitle) {
-        // Récupère le HomeFragment actuellement affiché
-        HomeFragment homeFragment = (HomeFragment)
-                getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
-
-        if (homeFragment != null) {
-            homeFragment.addItem(imageResId, title, subtitle);
-        } else {
-
-        }
-    }
-
 }
