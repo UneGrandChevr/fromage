@@ -62,7 +62,8 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void addItem(int imageResId, String title, String action){
-        itemList.add(new ItemLayout(imageResId, title, action));
+    public void addItem(int imageResId, String title, String subtitle) {
+        itemList.add(new ItemLayout(imageResId, title, subtitle));
+        adapter.notifyItemInserted(itemList.size() - 1);
     }
 }

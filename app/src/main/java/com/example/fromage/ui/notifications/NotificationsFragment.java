@@ -21,6 +21,7 @@ import com.example.fromage.MyAdapterRecetteListLayout;
 import com.example.fromage.R;
 import com.example.fromage.RecetteListLayout;
 import com.example.fromage.databinding.FragmentNotificationsBinding;
+import com.example.fromage.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,18 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {}
+        });
+
+        adapter = new MyAdapterRecetteListLayout(recetteListLayouts, getContext());
+
+        adapter.setOnRecetteAddListener(recette -> {
+            // Ici, tu envoies l’info au HomeFragment
+            HomeFragment homeFragment = (HomeFragment)
+                    requireActivity().getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
+
+            if (homeFragment != null) {
+                homeFragment.addItem(recette.getImageResId(), recette.getTitle(), "Retourner dans 7 jours");
+            }
         });
 
         return root;
@@ -183,4 +196,6 @@ public class NotificationsFragment extends Fragment {
 
 
     }
+
+
 }

@@ -77,7 +77,12 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
         description.setText(item.loadFullText(context)); // tu peux ajouter un getter pour le texte complet
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
-        //addBtn.setOnClickListener(v -> HomeFragment.addItem(R.id.detail_image,title,"Retourner dans 12 jours"));
+        addBtn.setOnClickListener(v -> {
+            if (addListener != null) {
+                addListener.onRecetteAdd(item);
+            }
+            dialog.dismiss();
+        });
         dialog.show();
     }
 
@@ -99,5 +104,15 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
     @Override
     public int getItemCount() {
         return recetteList.size();
+    }
+
+    public interface OnRecetteAddListener {
+        void onRecetteAdd(RecetteListLayout recette);
+    }
+
+    private OnRecetteAddListener addListener;
+
+    public void setOnRecetteAddListener(OnRecetteAddListener listener) {
+        this.addListener = listener;
     }
 }
