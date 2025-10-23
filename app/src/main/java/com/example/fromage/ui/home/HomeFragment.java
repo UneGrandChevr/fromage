@@ -51,8 +51,10 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Données à afficher
-        for(ItemLayout item : MaCave.getListFromages()) {
-            itemList.add(item);
+        if(MaCave.getListFromages() != null) {
+            for (ItemLayout item : MaCave.getListFromages()) {
+                itemList.add(item);
+            }
         }
 
         adapter = new MyAdapterItemLayout(itemList);
