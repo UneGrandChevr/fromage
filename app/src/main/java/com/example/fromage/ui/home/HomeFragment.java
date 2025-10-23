@@ -61,4 +61,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
     }
+
+    public void addItem(int imageResId, String title, String action){
+        itemList.add(new ItemLayout(imageResId, title, action));
+    }
 }
