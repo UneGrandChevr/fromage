@@ -3,6 +3,7 @@ package com.example.fromage;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,12 +24,13 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
         ImageView imageView;
         TextView titleView;
         TextView subtitleView;
-
+        Button retirerBtn;
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.CheeseIcon);
             titleView = itemView.findViewById(R.id.TitreCheese);
             subtitleView = itemView.findViewById(R.id.ActionCheese);
+            retirerBtn = itemView.findViewById(R.id.buttonRetirer);
         }
     }
 
@@ -46,6 +48,15 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
         holder.imageView.setImageResource(item.getImageResId());
         holder.titleView.setText(item.getTitle());
         holder.subtitleView.setText(item.getSubtitle());
+
+        holder.retirerBtn.setOnClickListener(v -> {
+            int currentPosition = holder.getAdapterPosition();
+            if (currentPosition != RecyclerView.NO_POSITION) {
+                MaCave.removeFromList(itemList.get(currentPosition));
+                itemList.remove(currentPosition);
+                notifyItemRemoved(currentPosition);
+            }
+        });
     }
 
     @Override

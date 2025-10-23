@@ -56,6 +56,7 @@ public class HomeFragment extends Fragment {
             for (ItemLayout item : MaCave.getListFromages()) {
                 itemList.add(item);
             }
+
         }
 
         adapter = new MyAdapterItemLayout(itemList);

@@ -22,4 +22,8 @@ public class  MaCave {
         return listFromages;
     }
 
+    public static void removeFromList(ItemLayout item){
+        listFromages.remove(item);
+    }
+
 }
