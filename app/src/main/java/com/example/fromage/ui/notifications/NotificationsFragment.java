@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -66,7 +67,7 @@ public class NotificationsFragment extends Fragment {
         adapter.setOnRecetteAddListener(recette -> {
             // Ici, tu envoies l’info au HomeFragment
             HomeFragment homeFragment = (HomeFragment)
-                    requireActivity().getSupportFragmentManager().findFragmentByTag("HomeFragment");
+                    ((AppCompatActivity) requireActivity()).getSupportFragmentManager().findFragmentByTag("home_fragment_tag");
 
             if (homeFragment != null) {
                 homeFragment.addItem(recette.getImageResId(), recette.getTitle(), "Retourner dans 7 jours");
