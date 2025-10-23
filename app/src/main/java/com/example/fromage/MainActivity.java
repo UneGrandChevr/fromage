@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ArrayList<ItemLayout> itemList = new ArrayList<ItemLayout>();
+        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", "Retourner dans 12 jours."));
+        itemList.add(new ItemLayout(R.drawable.brie_icon, "Brie", "Fin de l'affinage dans 5 jours."));
+        itemList.add(new ItemLayout(R.drawable.roquefort_icon, "Roquefort", "Fin de l'affinage!"));
+        MaCave.setListFromages(itemList);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -44,11 +50,7 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        ArrayList<ItemLayout> itemList = new ArrayList<ItemLayout>();
-        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", "Retourner dans 12 jours."));
-        itemList.add(new ItemLayout(R.drawable.brie_icon, "Brie", "Fin de l'affinage dans 5 jours."));
-        itemList.add(new ItemLayout(R.drawable.roquefort_icon, "Roquefort", "Fin de l'affinage!"));
-        MaCave.setListFromages(itemList);
+
 
     }
 }
