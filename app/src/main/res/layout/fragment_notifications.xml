@@ -23,7 +23,7 @@
             android:layout_marginLeft="70dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Recette fromage" />
+            android:text="" />
 
     </FrameLayout>
 

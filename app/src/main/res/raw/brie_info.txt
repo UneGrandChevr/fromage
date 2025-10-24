@@ -1,0 +1,4 @@
+Brie
+Le brie est un fromage français à\npâte molle et à croûte fleurie, produit\navec du lait de vache. Il se distingue\npar sa pâte souple et crémeuse,\nsa croûte blanche caractéristique et\nson goût doux et légèrement\nbeurré.
+Retourner le fromage
+2

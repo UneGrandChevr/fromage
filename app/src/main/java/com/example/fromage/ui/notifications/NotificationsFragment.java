@@ -25,6 +25,7 @@ import com.example.fromage.databinding.FragmentNotificationsBinding;
 import com.example.fromage.ui.home.HomeFragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NotificationsFragment extends Fragment {
@@ -77,6 +78,16 @@ public class NotificationsFragment extends Fragment {
 
         // Données à afficher
         recetteListLayouts = new ArrayList<RecetteListLayout>();
+        ArrayList<ItemLayout.Etape> etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Fin de l'affinage dans")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.icon_camembert, "Camembert",
                 "Le camembert est un fromage français\n" +
@@ -84,7 +95,15 @@ public class NotificationsFragment extends Fragment {
                 "à base de lait de vache. Il est\n" +
                 "crémeux, parfumé et connu pour son\n" +
                 "goût doux et légèrement boisé.",
-                R.raw.camembert));
+                R.raw.camembert,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Fin de l'affinage dans")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.tomme_de_brebis_icon, "Tomme de Brebis",
                 "La tomme de brebis est un fromage\n" +
@@ -93,7 +112,16 @@ public class NotificationsFragment extends Fragment {
                 "texture souple et un goût typique, à\n" +
                 "la fois doux, fruité et légèrement\n" +
                 "rustique.",
-                R.raw.tomme_de_brebis));
+                R.raw.tomme_de_brebis,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.reblochon_icon, "Reblochon",
                 "Le reblochon est un fromage\n" +
@@ -101,7 +129,18 @@ public class NotificationsFragment extends Fragment {
                 "et croûte lavée, fabriqué avec du lait\n" +
                 "de vache. Il est onctueux, doux et\n" +
                 "développe des arômes de noisette.",
-                R.raw.reblochon));
+                R.raw.reblochon,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Fin de l'affinage dans "),
+                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+        ));
+
         recetteListLayouts.add(new RecetteListLayout(R.drawable.gruyere_icon, "Gruyère",
                 "Le gruyère est un fromage suisse à\n" +
                 "pâte pressée cuite, produit avec du\n" +
@@ -109,7 +148,19 @@ public class NotificationsFragment extends Fragment {
                 "texture ferme, sa pâte sans trous et\n" +
                 "son goût fruité aux notes\n" +
                 "légèrement salées.",
-                R.raw.gruyere));
+                R.raw.gruyere,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Retourner le fromage dans "),
+                new ItemLayout.Etape(7, "Fin de l'affinage dans")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.brie_icon, "Brie",
                 "Le brie est un fromage français à\n" +
@@ -119,7 +170,8 @@ public class NotificationsFragment extends Fragment {
                         "sa croûte blanche caractéristique et\n" +
                         "son goût doux et légèrement\n" +
                         "beurré.",
-                R.raw.brie));
+                R.raw.brie,
+                etapes));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.roquefort_icon, "Roquefort",
                 "Le roquefort est un fromage français à\n" +
@@ -129,7 +181,15 @@ public class NotificationsFragment extends Fragment {
                         "sa pâte moelleuse et son goût\n" +
                         "puissant et salé, caractéristique\n" +
                         "des fromages affinés en cave.",
-                R.raw.roquefort));
+                R.raw.roquefort,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.morbier_icon, "Morbier",
                 "Le morbier est un fromage français à\n" +
@@ -139,7 +199,16 @@ public class NotificationsFragment extends Fragment {
                         "noire au milieu de la pâte et son\n" +
                         "goût doux, crémeux et légèrement\n" +
                         "noisetté.",
-                R.raw.morbier));
+                R.raw.morbier,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.icon_comte, "Comté",
                 "Le comté est un fromage français à\n" +
@@ -149,7 +218,18 @@ public class NotificationsFragment extends Fragment {
                         "ferme et souple, son goût fruité et\n" +
                         "noisetté, et ses arômes riches et\n" +
                         "complexes.",
-                R.raw.comte));
+                R.raw.comte,
+                etapes));
+
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Retourner le fromage dans "),
+                new ItemLayout.Etape(14, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.tomme_des_pyrennees_icon, "Tomme des Pyrénées",
                 "La tomme des Pyrénées est un fromage\n" +
@@ -159,7 +239,16 @@ public class NotificationsFragment extends Fragment {
                         "distingué par sa pâte semi-ferme, sa\n" +
                         "saveur douce et typée, et ses arômes\n" +
                         "de montagne.",
-                R.raw.tomme_des_pyrenees));
+                R.raw.tomme_des_pyrenees,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
+                new ItemLayout.Etape(7, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.munster_icon, "Munster",
                 "Le munster est un fromage français à\n" +
@@ -168,7 +257,17 @@ public class NotificationsFragment extends Fragment {
                         "par sa croûte orangée, sa pâte\n" +
                         "souple et son goût puissant et\n" +
                         "aromatique.",
-                R.raw.munster));
+                R.raw.munster,
+                etapes));
+
+        etapes = new ArrayList<>(Arrays.asList(
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Retourner le fromage dans "),
+                new ItemLayout.Etape(31, "Fin de l'affinage dans "),
+                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+        ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.parmesan_icon, "Parmesan",
                 "Le parmesan est un fromage italien à\n" +
@@ -177,7 +276,8 @@ public class NotificationsFragment extends Fragment {
                         "distingué par sa texture granuleuse,\n" +
                         "son affinage long et son goût riche,\n" +
                         "fruité et savoureux.",
-                R.raw.parmesan));
+                R.raw.parmesan,
+                etapes));
 
         adapter = new MyAdapterRecetteListLayout(recetteListLayouts,getContext());
         recyclerView.setAdapter(adapter);

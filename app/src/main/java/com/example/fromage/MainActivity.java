@@ -28,9 +28,10 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         ArrayList<ItemLayout> itemList = new ArrayList<ItemLayout>();
-        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", "Retourner dans 12 jours."));
-        itemList.add(new ItemLayout(R.drawable.brie_icon, "Brie", "Fin de l'affinage dans 5 jours."));
-        itemList.add(new ItemLayout(R.drawable.roquefort_icon, "Roquefort", "Fin de l'affinage!"));
+        ArrayList<ItemLayout.Etape> etapes = new ArrayList<ItemLayout.Etape>();
+        etapes.add(new ItemLayout.Etape(2, "Retourner le fromage dans "));
+
+        itemList.add(new ItemLayout(R.drawable.icon_comte, "Comté", etapes));
         MaCave.setListFromages(itemList);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

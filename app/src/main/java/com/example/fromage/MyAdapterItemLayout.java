@@ -24,13 +24,14 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
         ImageView imageView;
         TextView titleView;
         TextView subtitleView;
-        Button retirerBtn;
+        Button retirerBtn, passerBtn;
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.CheeseIcon);
             titleView = itemView.findViewById(R.id.TitreCheese);
             subtitleView = itemView.findViewById(R.id.ActionCheese);
             retirerBtn = itemView.findViewById(R.id.buttonRetirer);
+            passerBtn = itemView.findViewById(R.id.buttonPasser);
         }
     }
 
@@ -47,8 +48,24 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
         ItemLayout item = itemList.get(position);
         holder.imageView.setImageResource(item.getImageResId());
         holder.titleView.setText(item.getTitle());
-        holder.subtitleView.setText(item.getSubtitle());
 
+        int joursRestants = item.joursRestants();
+        if (joursRestants > 0) {
+            holder.subtitleView.setText(item.getCurrentEtape().action + joursRestants + " jours");
+            holder.retirerBtn.setVisibility(View.VISIBLE);
+            holder.passerBtn.setVisibility(View.GONE);
+        } else {
+            holder.subtitleView.setText("Étape prête : " + item.getCurrentEtape().action);
+            holder.passerBtn.setVisibility(View.VISIBLE);
+        }
+
+        // Bouton "Passer"
+        holder.passerBtn.setOnClickListener(v -> {
+            item.passerEtape();
+            notifyItemChanged(position);
+        });
+
+        // Bouton "Retirer"
         holder.retirerBtn.setOnClickListener(v -> {
             int currentPosition = holder.getAdapterPosition();
             if (currentPosition != RecyclerView.NO_POSITION) {
@@ -58,7 +75,6 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return itemList.size();
