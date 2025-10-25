@@ -79,14 +79,14 @@ public class NotificationsFragment extends Fragment {
         // Données à afficher
         recetteListLayouts = new ArrayList<RecetteListLayout>();
         ArrayList<ItemLayout.Etape> etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Fin de l'affinage dans")
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.icon_camembert, "Camembert",
@@ -99,10 +99,10 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Fin de l'affinage dans")
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.tomme_de_brebis_icon, "Tomme de Brebis",
@@ -116,11 +116,11 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.reblochon_icon, "Reblochon",
@@ -133,12 +133,12 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Fin de l'affinage dans "),
-                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.gruyere_icon, "Gruyère",
@@ -152,14 +152,14 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Retourner le fromage dans "),
-                new ItemLayout.Etape(7, "Fin de l'affinage dans")
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Retourner le fromage"),
+                new ItemLayout.Etape(7, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.brie_icon, "Brie",
@@ -185,10 +185,10 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.morbier_icon, "Morbier",
@@ -203,11 +203,11 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.icon_comte, "Comté",
@@ -223,12 +223,12 @@ public class NotificationsFragment extends Fragment {
 
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Retourner le fromage dans "),
-                new ItemLayout.Etape(14, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Retourner le fromage"),
+                new ItemLayout.Etape(14, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.tomme_des_pyrennees_icon, "Tomme des Pyrénées",
@@ -243,11 +243,11 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé dans "),
-                new ItemLayout.Etape(7, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Lavant la croute avec un peu d'eau salé"),
+                new ItemLayout.Etape(7, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.munster_icon, "Munster",
@@ -261,12 +261,12 @@ public class NotificationsFragment extends Fragment {
                 etapes));
 
         etapes = new ArrayList<>(Arrays.asList(
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Retourner le fromage dans "),
-                new ItemLayout.Etape(31, "Fin de l'affinage dans "),
-                new ItemLayout.Etape(31, "Fin de l'affinage dans ")
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Retourner le fromage"),
+                new ItemLayout.Etape(31, "Fin de l'affinage")
         ));
 
         recetteListLayouts.add(new RecetteListLayout(R.drawable.parmesan_icon, "Parmesan",

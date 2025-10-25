@@ -12,6 +12,8 @@
         private int currentEtapeIndex = 0;
         private long dateDebut;
 
+        private boolean notifiedForCurrentEtape = false;
+
         public ItemLayout(int imageResId, String title, ArrayList<Etape> pEtapes) {
             this.imageResId = imageResId;
             this.title = title;
@@ -52,6 +54,14 @@
 
         public int getImageResId() {
             return imageResId;
+        }
+
+        public boolean isNotifiedForCurrentEtape() {
+            return notifiedForCurrentEtape;
+        }
+
+        public void setNotifiedForCurrentEtape(boolean value) {
+            this.notifiedForCurrentEtape = value;
         }
 
         public String getTitle() {

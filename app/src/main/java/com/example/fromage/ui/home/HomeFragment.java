@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
     private TextView refroidisseurText;
     private TextView chauffageText;
     private TextView ventilationText;
+    private TextView connectionStatusText;
 
     // Handler pour mise à jour toutes les secondes
     private final Handler handler = new Handler();
@@ -71,6 +72,7 @@ public class HomeFragment extends Fragment {
         refroidisseurText = root.findViewById(R.id.ReffroidisseurText);
         chauffageText = root.findViewById(R.id.chauffageText);
         ventilationText = root.findViewById(R.id.ventilationText);
+        connectionStatusText = root.findViewById(R.id.connectionStatusText);
 
         itemList = new ArrayList<>();
         loadHome(root);
@@ -140,10 +142,14 @@ public class HomeFragment extends Fragment {
         humiditeText.setText(String.format("Humidité : %.1f%%", currentHum));
 
         if (!connectionOK) {
+            connectionStatusText.setText("Déconnecté");
+            connectionStatusText.setTextColor(0xFFFF0000);
             refroidisseurText.setText("Refroidisseur : --");
             chauffageText.setText("Chauffage : --");
             ventilationText.setText("Ventilation : --");
         } else {
+            connectionStatusText.setText("Connecté");
+            connectionStatusText.setTextColor(0xFF00FF00); // Vert
             refroidisseurText.setText(currentTemp > 10 ? "Refroidisseur : Activé" : "Refroidisseur : Arrêté");
             chauffageText.setText(currentTemp < 8 ? "Chauffage : Activé" : "Chauffage : Arrêté");
             ventilationText.setText(currentHum > 80 ? "Ventilation : Activée" : "Ventilation : Arrêtée");
