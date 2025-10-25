@@ -47,11 +47,16 @@ public class HomeFragment extends Fragment {
     private final Handler handler = new Handler();
     private Runnable updateTask;
 
-    // Ton clé Adafruit.io
+    // Ton compte Adafruit
     private static final String ADAFRUIT_USERNAME = "filmchemf2";
     private static final String ADAFRUIT_KEY = "aio_MpvQ89QPIUx7ChINRYx2biJouaDe";
     private static final String ADAFRUIT_FEED_TEMP = "temp";
     private static final String ADAFRUIT_FEED_HUM = "hum";
+
+    // Valeurs locales si pas de connexion
+    private double currentTemp = 0.0;
+    private double currentHum = 0.0;
+    private boolean connectionOK = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,12 +75,12 @@ public class HomeFragment extends Fragment {
         itemList = new ArrayList<>();
         loadHome(root);
 
-        // Tâche de mise à jour Adafruit toutes les secondes
+        // Tâche répétée chaque seconde
         updateTask = new Runnable() {
             @Override
             public void run() {
                 fetchAdafruitData();
-                handler.postDelayed(this, 1000); // toutes les secondes
+                handler.postDelayed(this, 1000);
             }
         };
         handler.post(updateTask);
@@ -90,7 +95,7 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
-    public void loadHome(View root) {
+    private void loadHome(View root) {
         recyclerView = root.findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -103,33 +108,50 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Récupère les données Adafruit.io pour humidité et température
+     * Essaie de récupérer les données d’Adafruit.io, sinon affiche des valeurs à 0.
      */
     private void fetchAdafruitData() {
         new Thread(() -> {
             try {
-                // Température
                 double temperature = getFeedValue(ADAFRUIT_FEED_TEMP);
                 double humidite = getFeedValue(ADAFRUIT_FEED_HUM);
 
-                requireActivity().runOnUiThread(() -> {
-                    temperatureText.setText(String.format("Température : %.1f°C", temperature));
-                    humiditeText.setText(String.format("Humidité : %.1f%%", humidite));
-
-                    // Logique simple d’état (tu pourras ajuster selon ton système)
-                    refroidisseurText.setText(temperature > 10 ? "Refroidisseur : Activé" : "Refroidisseur : Arrêté");
-                    chauffageText.setText(temperature < 8 ? "Chauffage : Activé" : "Chauffage : Arrêté");
-                    ventilationText.setText(humidite > 80 ? "Ventilation : Activée" : "Ventilation : Arrêtée");
-                });
+                connectionOK = true;
+                currentTemp = temperature;
+                currentHum = humidite;
 
             } catch (Exception e) {
-                e.printStackTrace();
+                // Si on échoue, on garde les dernières valeurs ou met à 0
+                connectionOK = false;
+                currentTemp = 0;
+                currentHum = 0;
             }
+
+            // Mise à jour de l’UI (toujours sur le thread principal)
+            requireActivity().runOnUiThread(this::updateUI);
         }).start();
     }
 
     /**
-     * Fonction pour lire la dernière valeur d’un feed Adafruit.io
+     * Met à jour l'interface selon les valeurs actuelles (même si offline)
+     */
+    private void updateUI() {
+        temperatureText.setText(String.format("Température : %.1f°C", currentTemp));
+        humiditeText.setText(String.format("Humidité : %.1f%%", currentHum));
+
+        if (!connectionOK) {
+            refroidisseurText.setText("Refroidisseur : --");
+            chauffageText.setText("Chauffage : --");
+            ventilationText.setText("Ventilation : --");
+        } else {
+            refroidisseurText.setText(currentTemp > 10 ? "Refroidisseur : Activé" : "Refroidisseur : Arrêté");
+            chauffageText.setText(currentTemp < 8 ? "Chauffage : Activé" : "Chauffage : Arrêté");
+            ventilationText.setText(currentHum > 80 ? "Ventilation : Activée" : "Ventilation : Arrêtée");
+        }
+    }
+
+    /**
+     * Récupère la dernière valeur d’un feed Adafruit.io
      */
     private double getFeedValue(String feedName) throws Exception {
         String urlString = "https://io.adafruit.com/api/v2/" + ADAFRUIT_USERNAME + "/feeds/" + feedName + "/data?limit=1";
@@ -137,6 +159,11 @@ public class HomeFragment extends Fragment {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("X-AIO-Key", ADAFRUIT_KEY);
+        conn.setConnectTimeout(3000);
+        conn.setReadTimeout(3000);
+
+        int responseCode = conn.getResponseCode();
+        if (responseCode != 200) throw new Exception("Erreur HTTP : " + responseCode);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         StringBuilder response = new StringBuilder();
