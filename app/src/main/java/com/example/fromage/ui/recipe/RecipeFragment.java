@@ -1,4 +1,4 @@
-package com.example.fromage.ui.notifications;
+package com.example.fromage.ui.recipe;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -7,28 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fromage.ItemLayout;
-import com.example.fromage.MyAdapterItemLayout;
 import com.example.fromage.MyAdapterRecetteListLayout;
 import com.example.fromage.R;
 import com.example.fromage.RecetteListLayout;
 import com.example.fromage.databinding.FragmentNotificationsBinding;
-import com.example.fromage.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class NotificationsFragment extends Fragment {
+public class RecipeFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
 
@@ -39,8 +35,8 @@ public class NotificationsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        RecipeViewModel recipeViewModel =
+                new ViewModelProvider(this).get(RecipeViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -72,6 +68,9 @@ public class NotificationsFragment extends Fragment {
         binding = null;
     }
 
+    /**
+     * charge les recettes dans la fenêtre
+     */
     public void loadRecette(View root) {
         recyclerView = root.findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

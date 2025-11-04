@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         saveFromages();
     }
 
+    /**
+     * méthode pour enregistrer dans les preferences (on entregistre en JSON)
+     */
     private void saveFromages() {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -79,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * méthode pour charger dans les preferences (on entregistre en JSON)
+     */
     private ArrayList<ItemLayout> loadFromages() {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String json = prefs.getString(KEY_FROMAGES, null);

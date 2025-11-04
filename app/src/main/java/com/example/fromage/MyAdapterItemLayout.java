@@ -46,30 +46,37 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
         return new ViewHolder(view);
     }
 
+    /**
+     * méthode qui permet a lier les données à l'affichage des élements dans la liste
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Récupère l’élément à afficher
         ItemLayout item = itemList.get(position);
+
+        // Met à jour l’image et le titre
         holder.imageView.setImageResource(item.getImageResId());
         holder.titleView.setText(item.getTitle());
 
         int joursRestants = item.joursRestants();
+
         if (joursRestants > 0) {
-            holder.subtitleView.setText(item.getCurrentEtape().action +" dans " + joursRestants + " jours");
+            // Étape non prête → affiche le délai restant
+            holder.subtitleView.setText(item.getCurrentEtape().action + " dans " + joursRestants + " jours");
             holder.retirerBtn.setVisibility(View.VISIBLE);
             holder.passerBtn.setVisibility(View.GONE);
         } else {
+            // Étape prête → affiche l’action et montre le bouton “Passer”
             holder.subtitleView.setText("Étape prête : " + item.getCurrentEtape().action);
             holder.passerBtn.setVisibility(View.VISIBLE);
 
             if (!item.isNotifiedForCurrentEtape()) {
-                // Vérifier préférence utilisateur (notifications activées)
                 boolean isNotifEnabled = true;
                 try {
                     isNotifEnabled = holder.itemView.getContext()
                             .getSharedPreferences("settings", Context.MODE_PRIVATE)
                             .getBoolean("notifications_enabled", true);
-                } catch (Exception ignored) {
-                }
+                } catch (Exception ignored) {}
 
                 if (isNotifEnabled) {
                     NotificationHelper.sendNotification(
@@ -78,19 +85,18 @@ public class MyAdapterItemLayout extends RecyclerView.Adapter<MyAdapterItemLayou
                             item.getTitle() + " : " + item.getCurrentEtape().action
                     );
                 }
-                // Marquer comme notifié pour ne pas renvoyer
                 item.setNotifiedForCurrentEtape(true);
             }
         }
 
-        // Bouton "Passer"
+        // Bouton “Passer” → passe à l’étape suivante
         holder.passerBtn.setOnClickListener(v -> {
             item.passerEtape();
             item.setNotifiedForCurrentEtape(false);
             notifyItemChanged(position);
         });
 
-        // Bouton "Retirer"
+        // Bouton “Retirer” → demande confirmation avant suppression
         holder.retirerBtn.setOnClickListener(v -> {
             Context context = v.getContext();
             int currentPosition = holder.getAdapterPosition();

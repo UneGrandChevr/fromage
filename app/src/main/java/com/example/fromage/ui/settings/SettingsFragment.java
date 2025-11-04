@@ -1,4 +1,4 @@
-package com.example.fromage.ui.dashboard;
+package com.example.fromage.ui.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,15 +15,15 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.fromage.NotificationHelper;
 import com.example.fromage.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
     private SharedPreferences prefs;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        SettingsViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(SettingsViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

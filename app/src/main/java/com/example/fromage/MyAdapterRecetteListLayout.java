@@ -61,7 +61,9 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
         holder.itemView.setOnClickListener(v -> showRecetteDialog(item));
     }
 
-
+    /**
+     * Afficher la fenetre de dialog notament quand on clique sur la recette
+     */
     private void showRecetteDialog(RecetteListLayout item) {
         Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_recipe_detail);
@@ -74,7 +76,7 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
 
         image.setImageResource(item.getImageResId());
         title.setText(item.getTitle());
-        description.setText(item.loadFullText(context)); // tu peux ajouter un getter pour le texte complet
+        description.setText(item.loadFullText(context));
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
         addBtn.setOnClickListener(v -> {
@@ -84,6 +86,9 @@ public class MyAdapterRecetteListLayout extends RecyclerView.Adapter<MyAdapterRe
         dialog.show();
     }
 
+    /**
+     * fonction de filtrage permettant de faire une recherche dans la liste de fromages
+     */
     public void filter(String text) {
         recetteList.clear();
         if (text.isEmpty()) {

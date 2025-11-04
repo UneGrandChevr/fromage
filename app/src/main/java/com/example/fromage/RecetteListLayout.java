@@ -10,7 +10,7 @@ public class RecetteListLayout {
     private int imageResId;
     private String title;
     private String subtitle;
-    private int textResId; // <-- référence vers ton fichier texte (ex : R.raw.camembert)
+    private int textResId; // référence vers le fichier texte
 
     private ArrayList<ItemLayout.Etape> etapes;
 

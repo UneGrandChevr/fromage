@@ -14,7 +14,7 @@ public class MaCave {
 
     private static List<ItemLayout> listFromages = new ArrayList<>();
 
-    // --- Méthodes existantes ---
+
     public static void setListFromages(List<ItemLayout> plistFromages) {
         listFromages = plistFromages;
     }
@@ -35,32 +35,5 @@ public class MaCave {
 
     public static void removeFromList(ItemLayout item) {
         listFromages.remove(item);
-    }
-
-    // --- 🔹 Sauvegarde et chargement persistant ---
-    private static final String PREFS_NAME = "MaCavePrefs";
-    private static final String KEY_LIST = "listFromages";
-
-    public static void saveToPreferences(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
-        Gson gson = new Gson();
-        String json = gson.toJson(listFromages);
-        editor.putString(KEY_LIST, json);
-        editor.apply();
-    }
-
-    public static void loadFromPreferences(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        String json = prefs.getString(KEY_LIST, null);
-
-        if (json != null) {
-            Gson gson = new Gson();
-            Type type = new TypeToken<List<ItemLayout>>() {}.getType();
-            listFromages = gson.fromJson(json, type);
-        } else {
-            listFromages = new ArrayList<>();
-        }
     }
 }

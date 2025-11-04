@@ -14,6 +14,9 @@
 
         private boolean notifiedForCurrentEtape = false;
 
+        /**
+         * constructeur de l'objet ItemLayout
+         */
         public ItemLayout(int imageResId, String title, ArrayList<Etape> pEtapes) {
             this.imageResId = imageResId;
             this.title = title;
@@ -29,6 +32,9 @@
             return null;
         }
 
+        /**
+         * fonction pour passer l'étape et le notifier dans la date de début (en soit c'est la date de début de l'action actuelle)
+         */
         public void passerEtape() {
             if (currentEtapeIndex < etapes.size() - 1) {
                 currentEtapeIndex++;
@@ -76,6 +82,9 @@
         }
 
 
+        /**
+         * classe Etape pour simplifier le fonctionnement et faire en sorte qu'il soit propre
+         */
         public static class Etape{
             int jours;
             String action;

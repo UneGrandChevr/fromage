@@ -48,9 +48,9 @@ public class HomeFragment extends Fragment {
     private final Handler handler = new Handler();
     private Runnable updateTask;
 
-    // Ton compte Adafruit
-    private static final String ADAFRUIT_USERNAME = "filmchemf2";
-    private static final String ADAFRUIT_KEY = "aio_MpvQ89QPIUx7ChINRYx2biJouaDe";
+    // Le compte Adafruit
+    private static final String ADAFRUIT_USERNAME = "username";
+    private static final String ADAFRUIT_KEY = "key";
     private static final String ADAFRUIT_FEED_TEMP = "temp";
     private static final String ADAFRUIT_FEED_HUM = "hum";
 
@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Initialisation des vues
+        // Initialisation des views
         humiditeText = root.findViewById(R.id.Humiditetext);
         temperatureText = root.findViewById(R.id.Temperaturetext);
         refroidisseurText = root.findViewById(R.id.ReffroidisseurText);
@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Essaie de récupérer les données d’Adafruit.io, sinon affiche des valeurs à 0.
+     * code qui essaie de récupérer les données d’Adafruit.io, sinon affiche des valeurs à 0.
      */
     private void fetchAdafruitData() {
         new Thread(() -> {
@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Met à jour l'interface selon les valeurs actuelles (même si offline)
+     * met à jour l'interface selon les valeurs actuelles (même si offline)
      */
     private void updateUI() {
         temperatureText.setText(String.format("Température : %.1f°C", currentTemp));
@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     * Récupère la dernière valeur d’un feed Adafruit.io
+     * recupere la dernière valeur d’un feed Adafruit.io
      */
     private double getFeedValue(String feedName) throws Exception {
         String urlString = "https://io.adafruit.com/api/v2/" + ADAFRUIT_USERNAME + "/feeds/" + feedName + "/data?limit=1";
